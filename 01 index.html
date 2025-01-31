@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Flask Jivana Cookies</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    
+    </body>
+
+
+    <div class="container">
+        <h2>Jivana Cookies - Pemesanan</h2>
+        <input type="text" id="search" placeholder="Cari produk..." oninput="searchProduct()">
+        <div id="menu">
+            <div class="item">
+                <img src="{{ url_for('static', filename='Image Jivana/Jivana 10.jpg') }}" alt="Medium Package" class="product-image">
+                <span class="product-name">Medium Package</span> </span>
+                <button class="btn" onclick="addToCart('Medium Package', 120000)">Tambah</button>
+            </div>
+            <div class="item">
+                <img src="{{ url_for('static', filename='Image Jivana/Jivana 11.jpg') }}" alt="Pouch Package" class="product-image">
+                <span class="product-name">Pouch Package</span>
+                <button class="btn" onclick="addToCart('Pouch Package', 32000)">Tambah</button>
+            </div>
+            <div class="item">
+                <img src="{{ url_for('static', filename='Image Jivana/Red Velvet Cookies.jpg.jpg') }}" alt="Red Velvet Cookies" class="product-image">
+                <span class="product-name">Red Velvet Cookies</span>
+                <button class="btn" onclick="addToCart('Red Velvet Cookies', 130000)">Tambah</button>
+            </div>
+            <div class="item">
+                <img src="{{ url_for('static', filename='Image Jivana/Reguler Package.jpg.jpg') }}" alt="Reguler Package" class="product-image">
+                <span class="product-name">Reguler Package</span>
+                <button class="btn" onclick="addToCart('Reguler Package', 105000)">Tambah</button>
+            </div>
+            <div class="item">
+                <img src="{{ url_for('static', filename='Image Jivana/Eco Package.jpg.jpg') }}" alt="Eco Package" class="product-image">
+                <span class="product-name">Eco Package</span>
+                <button class="btn" onclick="addToCart('Eco Package', 70000)">Tambah</button>
+            </div>
+            <div class="item">
+                <img src="{{ url_for('static', filename='Image Jivana/Putri Salju.jpg.jpg') }}" alt="Putri Salju" class="product-image">
+                <span class="product-name">Putri Salju</span>
+                <button class="btn" onclick="addToCart('Putri Salju', 90000)">Tambah</button>
+            </div>
+            <div class="item">
+                <img src="{{ url_for('static', filename='Image Jivana/brownies.jpg') }}" alt="Fie Easymelt" class="product-image">
+                <span class="product-name">Fie Easymelt</span>
+                <button class="btn" onclick="addToCart('Fie Easymelt', 120000)">Tambah</button>
+            </div>
+            <div class="item">
+                <img src="{{ url_for('static', filename='Image Jivana/jivana 9.jpg') }}" alt="Fruit Cookies" class="product-image">
+                <span class="product-name">Fruit Cookies</span>
+                <button class="btn" onclick="addToCart('Fruit Cookies', 120000)">Tambah</button>
+            </div>
+            <div class="item">
+                <img src="{{ url_for('static', filename='Image Jivana/jivana 4.jpg') }}" alt="Nastar" class="product-image">
+                <span class="product-name">Nastar</span>
+                <button class="btn" onclick="addToCart('Nastar', 120000)">Tambah</button>
+            </div>
+            <div class="item">
+                <img src="{{ url_for('static', filename='Image Jivana/Jivana 2.jpg') }}" alt="Mocci Cookies" class="product-image">
+                <span class="product-name">Mocci Cookies</span>
+                <button class="btn" onclick="addToCart('Mocci Cookies', 130000)">Tambah</button>
+            </div>
+            <div class="item">
+                <img src="{{ url_for('static', filename='Image Jivana/jivana 8.jpg') }}" alt="Broker Almond" class="product-image">
+                <span class="product-name">Broker Almond</span>
+                <button class="btn" onclick="addToCart('Broker Almond', 70000)">Tambah</button>
+            </div>
+            <div class="item">
+                <img src="{{ url_for('static', filename='Image Jivana/jivana 5.jpg') }}" alt="Sagu Kukus" class="product-image">
+                <span class="product-name">Sagu Kukus</span>
+                <button class="btn" onclick="addToCart('Sagu Kukus', 120000)">Tambah</button>
+            </div>
+
+            
+            </div>
+            
+            
+            
+            
+
+            </div>
+
+        </div>
+
+        <h2>Pesanan Anda</h2>
+        <ul id="cart"></ul>
+        <h3>Total: Rp <span id="total">0</span></h3>
+        <button class="btn" onclick="checkout()">Proses Pembayaran</button>
+        <label for="payment-method">Metode Pembayaran:</label>
+<select id="payment-method">
+    <option value="Tunai">Tunai</option>
+    <option value="Transfer">Transfer Bank</option>
+    <option value="QRIS">QRIS</option>
+</select>
+        <button class="btn" onclick="printReceipt()">Cetak Struk</button>
+      
+        
+        <div class="qr-container">
+            <p class="qr-title">QCode Jivana Cookies</p>
+            <img src="{{ url_for('static', filename='Image Jivana/qcode_chrome.png.png') }}" alt="QR Code" class="qrcode">
+        </div>
+
+        <button class="btn" onclick="tampilkanKontak()">📞 Kontak Kami</button>
+
+        <div id="kontak-container" style="display: none;">
+            <h2>Hubungi Kami</h2>
+            <p>📍 Alamat: Jl. Ciptakarya II No 24 Margacipta Rancasari</p>
+            <p>📞 Telepon: <a href="tel:+6282126530820">+62 821-2653-0820</a></p>
+            <p>📧 Email: <a href="nurlaenineni79@gmail.com">nurlaenineni79@gmail.com</a></p>
+            <p>📱 WhatsApp: <a href="https://wa.me/6282126530820" target="_blank">Chat via WhatsApp</a></p>
+            <p>📷 Instagram: <a href="https://instagram.com/neninurlaeni9886" target="_blank">@Neni Nurlaeni</a></p>
+        </div>
+        
+
+
+
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    
+
+</body>
+</html>
+
+
+
+
+
